@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block main %}
+    <h1>{% trans "Please choose what you want to buy." %}</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn-margin" id="payPalButton" type="submit" name="METHOD" value="{% trans "Checkout" %}" />
+    </form>
+{% endblock %}
