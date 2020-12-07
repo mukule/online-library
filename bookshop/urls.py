@@ -18,7 +18,6 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-from paypal.express.dashboard.app import application
 urlpatterns = [
    path('i18n/', include('django.conf.urls.i18n')),
 
@@ -27,6 +26,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', include(apps.get_app_config('oscar').urls[0])),
-    path(r'^checkout/paypal/', include('paypal.express.urls')),
-    path(r'^dashboard/paypal/express/', application.urls),
+   # path(r'^checkout/paypal/', include('paypal.express.urls')),
+   # path(r'^dashboard/paypal/express/', application.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
