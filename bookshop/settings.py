@@ -27,7 +27,7 @@ SECRET_KEY = '(c1(8c(j_r+w=rbgme46py^pd3ra-tw7!2tmd%0#hu(1ih833v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['revivalkenya.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -131,7 +131,7 @@ TEMPLATES = [
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+DATABASES = { 'default': dj_database_url.config() }
 
 WSGI_APPLICATION = 'bookshop.wsgi.application'
 
@@ -203,6 +203,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 PAYPAL_USER = 'sb-gc87f3915567@personal.example.com'
 PAYPAL_PWD = 'Lg4(4=a>'
