@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(c1(8c(j_r+w=rbgme46py^pd3ra-tw7!2tmd%0#hu(1ih833v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['revivalkenya.herokuapp.com', '127.0.0.1']
 
