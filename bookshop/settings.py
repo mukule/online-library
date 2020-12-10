@@ -156,7 +156,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'masibo002@gmail.com'
-EMAIL_HOST_PASSWORD = 'love254kenya'
+EMAIL_HOST_PASSWORD = 'bioanvuunmqomxxq'
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
