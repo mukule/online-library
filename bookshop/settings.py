@@ -81,8 +81,6 @@ INSTALLED_APPS = [
     'treebeard',
     'sorl.thumbnail',
     'django_tables2',
-    'paypal',
-    'paypal_express_checkout',
     
 ]
 SITE_ID = 1
