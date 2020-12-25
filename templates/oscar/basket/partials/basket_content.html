@@ -5,7 +5,7 @@
 {% load widget_tweaks %}
 
 {% if basket_warnings %}
-    <h5>{% trans "Important messages about items in your basket" %}</h5>
+    <h5>{% trans "Important messages about books in your basket" %}</h5>
     {% for warning in basket_warnings %}
         <div class="alert alert-warning">{{ warning }}</div>
     {% endfor %}
@@ -26,7 +26,7 @@
     {% block basket_form_headers %}
         <div class="basket-title hidden-xs">
             <div class="row">
-                <h2 class="col-sm-6 h3">{% trans "Items to buy now" %}</h2>
+                <h2 class="col-sm-6 h3">{% trans "books to buy now" %}</h2>
                 <p class="col-sm-3 h3">{% trans "Quantity" %}</p>
                 <p class="col-sm-1 h3 align-right">{% trans "Price" %}</p>
                 <p class="col-sm-2 h3 align-right">{% trans "Total" %}</p>
@@ -154,7 +154,48 @@
         <div class="form-group clearfix">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-8">
-                    <a href="{% url 'checkout:index' %}" class="btn btn-lg btn-primary btn-block">{% trans "Proceed to checkout" %}</a>
+                   <!-- <a href="{% url 'checkout:index' %}" class="btn btn-lg btn-primary btn-block">{% trans "Proceed to checkout" %}</a>-->
+                    <form>
+                        <script src="https://checkout.flutterwave.com/v3.js"></script>
+                        <button class="btn btn-lg btn-primary btn-block" type="button" onClick="makePayment()">Proceed to checkout</button>
+                      </form>
+                    <div class="card-body">
+                        
+                        <script>
+                          function makePayment() {
+                            FlutterwaveCheckout({
+                              public_key: "FLWPUBK-740fa14492aebf5216c58b8242057a84-X",
+                              tx_ref: Date.now(),
+                              amount:  " {{ order_total.incl_tax}}",
+                              currency: "KES",
+                              country: "KENYA",
+                              payment_options: "card, mobilemoneyghana, ussd, mpesa",
+                              redirect_url: // specified redirect URL
+                                "{% url 'checkout:preview' %}",
+                              meta: {
+                                consumer_id: 23,
+                                consumer_mac: "92a3-912ba-1192a",
+                              },
+                              customer: {
+                                email: "{{ user.get_full_name|default:request.user.email }}",
+                                phone_number: "0704122212",
+                                name: "{{ user.get_full_name|default:request.user.email }}",
+                              },
+                              callback: function (data) {
+                                console.log(data);
+                              },
+                              onclose: function() {
+                                // close modal
+                              },
+                              customizations: {
+                                title: "RevivalKenya",
+                                description: "Payment for items in cart",
+                                logo: "https://visme.co/blog/wp-content/uploads/2017/08/40-Creative-Logo-Designs-to-Inspire-You-Immanuel-Luthern-Church-1.jpg",
+                              },
+                            });
+                          }
+                        </script>
+                      </div>
                 </div>
             </div>
         </div>

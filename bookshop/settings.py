@@ -81,7 +81,8 @@ INSTALLED_APPS = [
     'treebeard',
     'sorl.thumbnail',
     'django_tables2',
-    
+    'paypal',
+    'paypal_express_checkout',
     
 ]
 SITE_ID = 1
@@ -205,7 +206,7 @@ MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-PAYPAL_USER = 'sb-gc87f3915567@personal.example.com'
-PAYPAL_PWD = 'Lg4(4=a>'
-PAYPAL_SIGNATURE = 'EZ9Y4FQ3TNXHU'
-SALE_DESCRIPTION = 'Personal'
+PAYPAL_USER = 'sb-kzie472798360_api1.business.example.com'
+PAYPAL_PWD = 'B4U4M7ZC2CQZE5HY'
+PAYPAL_SIGNATURE = 'AZd22-cwZEKo6-GSxv1YN5wOGNcXAc0PsSocKnDf03cEH3WMRnRwq0l9'
+SALE_DESCRIPTION = 'online book library'

@@ -1,4 +1,5 @@
 {% extends "oscar/checkout/checkout.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block title %}
@@ -20,14 +21,9 @@
     {% block payment_details_content %}
        
       <div class="card text-center">
-  <div class="card-header">
-    Alert!!!
+  
   </div>
-  <div class="card-body">
-    <h5 class="card-title">This library does not support shipping yet,but it will soon</h5>
-    <p class="card-text">Paypal and mpesa payments implementation coming soon</p>
-    <a href="#" class="btn btn-primary">Happy reading </a>
-  </div>
+  
   
 </div>
         <a id="view_preview" href="{% url 'checkout:preview' %}" class="btn btn-primary btn-lg">{% trans "Continue" %}</a>
