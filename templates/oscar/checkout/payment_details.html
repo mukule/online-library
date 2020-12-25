@@ -10,7 +10,7 @@
     {% include 'oscar/checkout/nav.html' with step=3 %}
 {% endblock %}
 
-{% block checkout_title %}{% trans "Enter payment details" %}{% endblock %}
+{% block checkout_title %}{% trans "RevivalKenya online library" %}{% endblock %}
 
 {% block order_contents %}{% endblock %}
 {% block shipping_address %}{% endblock %}
@@ -21,11 +21,11 @@
     {% block payment_details_content %}
        
       <div class="card text-center">
-  
+Our mind can only be fed through reading
   </div>
   
   
 </div>
-        <a id="view_preview" href="{% url 'checkout:preview' %}" class="btn btn-primary btn-lg">{% trans "Continue" %}</a>
+        <a id="view_preview" href="{% url 'basket:summary' %}" class="btn btn-primary btn-lg">{% trans "Continue" %}</a>
     {% endblock payment_details_content %}
 {% endblock payment_details %}
