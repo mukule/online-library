@@ -154,8 +154,8 @@
         <div class="form-group clearfix">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-8">
-                   <!-- <a href="{% url 'checkout:index' %}" class="btn btn-lg btn-primary btn-block">{% trans "Proceed to checkout" %}</a>-->
-
+                    <!--<a href="{% url 'checkout:index' %}" class="btn btn-lg btn-primary btn-block">{% trans "Proceed to checkout" %}</a>-->
+                    {% if request.user.is_authenticated %}
                     <form>
                         <script src="https://checkout.flutterwave.com/v3.js"></script>
                         <button class="btn btn-lg btn-primary btn-block" type="button" onClick="makePayment()">Proceed to checkout</button>
@@ -196,6 +196,10 @@
                             });
                           }
                         </script>
+                        {% else %} 
+                        <P class="text-danger">log/register to proceed</P>
+                        <a href="{% url 'customer:login' %}" class="btn  btn-primary">{% trans "Login or register" %}</a>
+                         {% endif %}
                 </div>
             </div>
         </div>
@@ -214,7 +218,7 @@
     {% if user.is_authenticated and saved_formset %}
         <div class="well">
             <div class="sub-header">
-                <h2>{% trans "Items to buy later" %}</h2>
+                <h2>{% trans "Books to buy later" %}</h2>
             </div>
             <div class="row basket-title hidden-xs">
                 <p class="col-sm-8 h4">{% trans "Items" %}</p>
