@@ -182,8 +182,10 @@
                                 phone_number: "0704122212",
                                 name: "{{ user.get_full_name|default:request.user.email }}",
                               },
-                              callback: function (data) {
-                                console.log(data);
+                              callback: function (response) {
+                                var tx_ref = response.tx.txRef;
+                                console.log("This is the response returned after a charge", response);
+                                
                               },
                               onclose: function() {
                                 // close modal
